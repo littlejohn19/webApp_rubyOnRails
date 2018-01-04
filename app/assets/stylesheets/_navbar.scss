@@ -1,0 +1,28 @@
+header {
+  position: fixed;
+  background: #000;
+  width: 100%;
+}
+
+header nav ul {
+  list-style-type: none;
+  float: left;
+  font-weight: 700;
+  font-size: 1.3em;
+}
+
+header nav ul li {
+  display: inline;
+  padding-left: 30px;
+}
+
+header nav ul li a {
+  color: #f2f2f2;
+  -o-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -khtml-transition: all 0.25s linear;
+  -webkit-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+
