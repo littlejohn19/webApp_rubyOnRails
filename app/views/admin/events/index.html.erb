@@ -1,0 +1,14 @@
+<% provide(:page_title, 'Wszystkie wydarzenia') %>
+
+
+<div class="row offset">
+  <%= link_to 'Dodaj wydarzenie', new_admin_event_path, class: 'btn btn-primary' %>
+  <table class="table table-striped">
+    <tr>
+      <th colspan="4">Title</th>
+    </tr>
+    <%= render @events %>
+  </table>
+</div>
+
+

@@ -1,0 +1,6 @@
+<tr>
+  <td><%= link_to event.title, admin_event_path(event) %></td>
+  <td></td>
+  <td><%= link_to 'Edytuj', edit_admin_event_path(event), class: 'btn btn-success' %></td>
+  <td><%= link_to 'Usuń', admin_event_path(event), method: :delete, data: {confirm: 'Jesteś pewien?'}, class: 'btn btn-danger' %></td>
+</tr>
