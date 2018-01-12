@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root 'store/events#index'
   get '/admin', to: 'admin#manage'
 
