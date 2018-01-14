@@ -5,7 +5,7 @@ module Store
     # GET /events
     # GET /events.json
     def index
-      @events = Event.all
+      @events = Event.all.paginate(:page => params[:page], per_page: 6)
     end
 
     # GET /events/1

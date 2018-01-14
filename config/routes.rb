@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin#manage'
 
   namespace :admin do
+    get '/account' => 'account#edit', as: :account
+    put '/info' => 'account#update_info', as: :info
+    put '/change_password' => 'account#change_password', as: :change_password
     resources :events
   end
 

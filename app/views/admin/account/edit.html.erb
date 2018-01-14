@@ -1,0 +1,80 @@
+<div class="offset col-xs-6">
+  <div class="col-xs-6">
+    <%= form_tag admin_info_path, method: :put do %>
+      <%= fields_for :admin do |f| %>
+        <div class="col-xs-6">
+          <div class="card">
+            <div class="card-block">
+              <div class="card-title">
+                Użytkownik
+              </div>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="field">
+                  <%= f.label :nazwa %>
+                  <%= f.text_field :name, value: current_user.name, class: 'form-control' %>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="field">
+                  <%= f.label :email %>
+                  <%= f.text_field :email, value: current_user.email, class: 'form-control' %>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="field">
+                  <%= f.label :Data_Urodzenia %>
+                  <%= f.date_select :birthdate, value: current_user.birthdate, class: 'form-control' %>
+                </div>
+              </li>
+              <li class='list-group-item'>
+                <%= f.submit "Zaktualizuj", class: 'btn btn-primary' %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="offset">
+    <%= form_tag admin_change_password_path, method: :put do %>
+      <%= fields_for :admin do |f| %>
+        <div class="col-xs-6">
+          <div class="card">
+            <div class="card-block">
+              <div class="card-title">
+                Zmień hasło
+              </div>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="field">
+                  <%= f.label :Aktualne_hasło %>
+                  <%= f.password_field :current_password, class: 'form-control' %>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="field">
+                  <%= f.label :Nowe_hasło %>
+                  <%= f.password_field :new_password, class: 'form-control' %>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="field">
+                  <%= f.label :Nowe_hasło_ponownie %>
+                  <%= f.password_field :new_password_confirmation, class: 'form-control' %>
+                </div>
+              </li>
+              <li class='list-group-item'>
+                <%= f.submit "Zmień hasło", class: 'btn btn-warning' %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="offset"></div>

@@ -2,29 +2,24 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+<h2></h2>
 
-<p>
-  <strong>Image:</strong>
-  <%= @event.image %>
-</p>
+<div class="jumbotron">
+  <h1 class="display-4"><%= @event.title %></h1>
+  <hr class="my-4">
+  <p>Data wydarzenia: <%= @event.date %></p>
+  <img src="<%= @event.image %>"/>
+  <p class="lead offset">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+    featured
+    content or information.</p>
+  <hr class="my-4">
+  <p>Kup bilet:</p>
+  <button class="btn btn-primary">Pokaż dostępne miejsca</button>
+  <div id="messagePanel" class="messagePanel"></div>
+  <div class="alert-danger" id="error"></div>
+  <button class="btn btn-primary">Kup</button>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+</div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @event.slug %>
-</p>
-
-<!-- <%= link_to 'Back', events_path %> -->
+<!-- <%= link_to 'Wróć...', events_path %> -->

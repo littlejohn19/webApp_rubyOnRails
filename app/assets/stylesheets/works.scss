@@ -1,3 +1,28 @@
 .offset {
   padding-top: 128px;
 }
+
+.messagePanel { border: none; text-align: center}
+
+.seat {
+
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border: solid 1px black;
+  float: left;
+  cursor: pointer;
+
+}
+
+.clearfix { clear: both;}
+.available {
+  background-color: #96c131;
+}
+
+.hovering{
+  background-color: #ae59b3;
+}
+.selected{
+  background-color: red;
+}

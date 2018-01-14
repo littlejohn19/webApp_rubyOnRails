@@ -16,3 +16,70 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function () {
+
+  // $('#btnSeating').on('click', createseating);
+
+  createseating()
+
+});
+
+//Note:In js the outer loop runs first then the inner loop runs completely so it goes o.l. then i.l. i.l .i.l .i.l. i.l etc and repeat
+
+function createseating() {
+
+  var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+
+  var seatingValue = [];
+  for (var i = 0; i < 10; i++) {
+
+    for (var j = 0; j < 10; j++) {
+      var seatingStyle = "<div class='seat available'>" + letters[j] + "" + (j+1) + "</div>";
+      seatingValue.push(seatingStyle);
+
+      if (j === 9) {
+        var seatingStyle = "<div class='clearfix'></div>";
+        seatingValue.push(seatingStyle);
+      }
+    }
+  }
+
+  $('#messagePanel').html(seatingValue);
+
+  $(function () {
+    var max = 0;
+    $('.seat').on('click', function () {
+
+
+      if ($(this).hasClass("selected")) {
+        max--;
+        $(this).removeClass("selected");
+      } else {
+        console.log(max);
+        if (max === 5){
+          console.log('aaa');
+          $('#error').text('Możesz kupić maksymalnie 5 biletów!')
+        }
+        else {
+          $(this).addClass("selected");
+          max++;
+        }
+
+      }
+
+    });
+
+    $('.seat').mouseenter(function () {
+      $(this).addClass("hovering");
+
+      $('.seat').mouseleave(function () {
+        $(this).removeClass("hovering");
+
+      });
+    });
+
+
+  });
+
+};
