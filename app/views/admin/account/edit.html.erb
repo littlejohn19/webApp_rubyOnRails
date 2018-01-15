@@ -1,41 +1,75 @@
 <div class="offset col-xs-6">
+
   <div class="col-xs-6">
-    <%= form_tag admin_info_path, method: :put do %>
-      <%= fields_for :admin do |f| %>
-        <div class="col-xs-6">
-          <div class="card">
-            <div class="card-block">
-              <div class="card-title">
-                Użytkownik
-              </div>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <div class="field">
-                  <%= f.label :nazwa %>
-                  <%= f.text_field :name, value: current_user.name, class: 'form-control' %>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="field">
-                  <%= f.label :email %>
-                  <%= f.text_field :email, value: current_user.email, class: 'form-control' %>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="field">
-                  <%= f.label :Data_Urodzenia %>
-                  <%= f.date_select :birthdate, value: current_user.birthdate, class: 'form-control' %>
-                </div>
-              </li>
-              <li class='list-group-item'>
-                <%= f.submit "Zaktualizuj", class: 'btn btn-primary' %>
-              </li>
-            </ul>
+    <div class="col-xs-6">
+      <div class="card">
+        <div class="card-block">
+          <div class="card-title">
+            Doładuj konto
           </div>
         </div>
+        <ul class="my-list">
+          <li>
+            <%= link_to 'Doładuj 50 zł', admin_increase_money_path(:money => 50), method: :put, class: "btn btn-success" %>
+          </li>
+          <li>
+            <%= link_to 'Doładuj 100 zł', admin_increase_money_path(:money => 100), method: :put, class: "btn btn-success" %>
+          </li>
+          <li>
+            <%= link_to 'Doładuj 200 zł', admin_increase_money_path(:money => 200), method: :put, class: "btn btn-success" %>
+          </li>
+          <li>
+            <%= link_to 'Doładuj 500 zł', admin_increase_money_path(:money => 500), method: :put, class: "btn btn-success" %>
+          </li>
+          <li>
+            <div class="state-money">
+              <span>Stan konta: <%= current_user.money_state %></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="offset">
+    <div class="col-xs-6">
+      <%= form_tag admin_info_path, method: :put do %>
+        <%= fields_for :admin do |f| %>
+          <div class="col-xs-6">
+            <div class="card">
+              <div class="card-block">
+                <div class="card-title">
+                  Użytkownik
+                </div>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="field">
+                    <%= f.label :nazwa %>
+                    <%= f.text_field :name, value: current_user.name, class: 'form-control' %>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="field">
+                    <%= f.label :email %>
+                    <%= f.text_field :email, value: current_user.email, class: 'form-control' %>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="field">
+                    <%= f.label :Data_Urodzenia %>
+                    <%= f.date_select :birthdate, value: current_user.birthdate, class: 'form-control' %>
+                  </div>
+                </li>
+                <li class='list-group-item'>
+                  <%= f.submit "Zaktualizuj", class: 'btn btn-primary' %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 
   <div class="offset">

@@ -26,3 +26,28 @@
 .selected{
   background-color: red;
 }
+
+#show, #messagePanel {
+  margin-bottom: 20px;
+}
+
+.my-button a {
+  color: #fff;
+}
+
+.my-list {
+  display: inline-flex;
+}
+
+.my-list li {
+  list-style-type: none;
+  margin-right: 10px;
+}
+
+.state-money {
+  margin-top: 5px;
+}
+
+.pull-right-but {
+  float: right;
+}

@@ -5,8 +5,11 @@
 
   <%= render 'form', event: @event %>
 
-  <%= link_to 'Show', @event %> |
-  <%= link_to 'Back', events_path %>
+  <div class="pull-right-but">
+    <%= link_to 'Pokaż', @event, class: "btn btn-primary" %>
+    <%= link_to 'Wróc', events_path, class: "btn btn-primary" %>
+  </div>
 
 </div>
+<div class="offset"></div>
 

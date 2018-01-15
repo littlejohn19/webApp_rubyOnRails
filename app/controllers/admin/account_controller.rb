@@ -29,6 +29,13 @@ module Admin
       redirect_to admin_account_path
     end
 
+    def increase_money
+      money_state = params[:money]
+      current_user.money_state += money_state.to_i
+      current_user.save()
+      redirect_to admin_account_path
+    end
+
     private
 
     def author_info_params
