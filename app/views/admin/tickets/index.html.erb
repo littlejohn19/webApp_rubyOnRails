@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bilety</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Użytkownik</th>
+    <th>Event</th>
+    <th>Adres</th>
+    <th>Zapłacono</th>
+    <th>Kupione miejsca</th>
+    <th>Wydarzenie</th>
+  </tr>
+  <%= render @tickets %>
+</table>
+
+<%= link_to 'Dodaj Bilet', new_admin_ticket_path, class: 'btn btn-primary' %>
+
+

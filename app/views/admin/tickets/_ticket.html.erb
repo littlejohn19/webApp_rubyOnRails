@@ -1,0 +1,8 @@
+<tr>
+  <td><%= ticket.name %></td>
+  <td><%= ticket.event_name %></td>
+  <td><%= ticket.address %></td>
+  <td><%= ticket.price %></td>
+  <td><%= ticket.places %></td>
+  <td><%= link_to ticket.name, event_path(ticket.event_id) %></td>
+</tr>

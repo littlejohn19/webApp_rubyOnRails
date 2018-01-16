@@ -5,7 +5,7 @@ module Store
     # GET /events
     # GET /events.json
     def index
-      @events = Event.all.paginate(:page => params[:page], per_page: 6)
+      @events = Event.where('date > ?', Date.today).order(date: :asc).all.paginate(:page => params[:page], per_page: 3)
     end
 
     # GET /events/1

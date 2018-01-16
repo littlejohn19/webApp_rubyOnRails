@@ -5,7 +5,8 @@ module Admin
     # GET /events
     # GET /events.json
     def index
-      @events = Event.all
+      @events = Event.where('date > ?', Date.today).order(date: :asc)
+      @archive_events = Event.where('date < ?', Date.today).order(date: :asc)
     end
 
     # GET /events/1

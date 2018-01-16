@@ -48,11 +48,10 @@
               Profil
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to 'Zarządzaj eventami', admin_events_path, class: "nav-link #{yield(:home_active)}" %>
-              <a class="dropdown-item" href="#">Historia</a>
-              <a class="dropdown-item" href="#">Doładuj konto</a>
-              <a class="dropdown-item" href="#">Archiwum</a>
-              <%= link_to 'Edytuj profil', admin_account_path, class: "nav-link #{yield(:home_active)}" %>
+              <%= link_to 'Zarządzaj eventami', admin_events_path, class: "nav-link" %>
+              <%= link_to 'Archiwalne eventy', admin_index_path, class: "nav-link" %>
+              <%= link_to 'Bilety', admin_tickets_path, class: "nav-link" %>
+              <%= link_to 'Edytuj profil', admin_account_path, class: "nav-link" %>
               <div class="dropdown-divider"></div>
               <%= link_to 'Wyloguj', destroy_user_session_path, method: :delete, class: "nav-link" %>
             </div>

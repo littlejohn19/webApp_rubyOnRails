@@ -20,8 +20,46 @@
   <button id="show" class="btn btn-primary">Pokaż dostępne miejsca</button>
   <div id="messagePanel" class="messagePanel"></div>
   <div class="alert-danger" id="error"></div>
-  <button class="btn btn-primary">Kup</button>
+  <% if !user_signed_in? %>
+    <%= link_to 'Zaloguj się, aby kupić bilet', user_session_path, class: "btn btn-warning btn-buy btn-max btn-pointer" %>
+  <% else %>
+    <% if current_user.birthdate %>
+      <% if @event.adult_event && (Date.current.year - (I18n.l current_user.birthdate, :format => "%Y").to_i) >= 18 %>
+        <%= button_to 'Kup bilet na wydarzenie', user_session_path, method: :post, class: "btn btn-success btn-buy btn-max btn-pointer" %>
+      <% elsif @event.adult_event && (Date.current.year - (I18n.l current_user.birthdate, :format => "%Y").to_i) < 18 %>
+        <button id="warnTicket" class="btn btn-warning btn-buy btn-max btn-pointer" data-placement="bottom" title="Nie masz wystarczającej ilości lat" data-toggle="tooltip-warn">KUP
+          BILET
+        </button>
+      <% else %>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ticketModal">
+          Kup bilet
+        </button>
+      <% end %>
+    <% end %>
+    <% if current_user.birthdate == nil %>
+      <%= link_to 'Ustaw date urodzenia', admin_account_path, class: "btn btn-danger btn-buy btn-max btn-pointer" %>
+    <% end %>
+  <% end %>
 
+</div>
+<div id="ticketModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Podsumowanie</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Kup</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Anuluj</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
