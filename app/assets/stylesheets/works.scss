@@ -6,9 +6,9 @@
 
 .seat {
 
-  width: 30px;
-  height: 30px;
-  margin: 5px;
+  width: 40px;
+  height: 40px;
+  margin: 7px;
   border: solid 1px black;
   float: left;
   cursor: pointer;
@@ -57,5 +57,13 @@
 }
 
 #ticketModal {
-  margin-top: 250px;
+  margin-top: 50px;
+}
+
+.modal-dialog {
+  max-width: 800px;
+}
+
+.money-state {
+  margin-top: 8px;
 }

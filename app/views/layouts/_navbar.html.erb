@@ -43,6 +43,7 @@
       <% end %>
       <% if user_signed_in? %>
         <ul class="navbar-nav">
+          <li class="money-state">Stan konta: <%= current_user.money_state %> zł</li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Profil

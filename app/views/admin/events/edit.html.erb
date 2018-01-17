@@ -3,7 +3,7 @@
 <div class="container offset">
   <h1>Eycja wydarzenia</h1>
 
-  <%= render 'form', event: @event %>
+  <%= render 'form', event: @event, url: admin_events_url %>
 
   <div class="pull-right-but">
     <%= link_to 'Pokaż', @event, class: "btn btn-primary" %>

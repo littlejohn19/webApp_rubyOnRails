@@ -33,7 +33,7 @@ function createseating() {
   var seatingValue = [];
   for (var i = 0; i < 10; i++) {
     for (var j = 0; j < 10; j++) {
-      var seatingStyle = "<div class='seat available'>" + letters[j] + "" + (j + 1) + "</div>";
+      var seatingStyle = "<div class='seat available'>" + letters[j] + "" + ((i+1)*(j+1)) + "</div>";
       seatingValue.push(seatingStyle);
 
       if (j === 9) {
@@ -45,18 +45,21 @@ function createseating() {
 
   $('#messagePanel').html(seatingValue);
 
+  window.seats = '';
+
   var max = 0;
   $('.seat').on('click', function () {
+
+    console.log(window.seats);
     if ($(this).hasClass("selected")) {
       max--;
       $(this).removeClass("selected");
     } else {
-      console.log(max);
       if (max === 5) {
-        console.log('aaa');
         $('#error').text('Możesz kupić maksymalnie 5 biletów!')
       }
       else {
+        window.seats = window.seats + ' ' + $(this)[0].innerHTML;
         $(this).addClass("selected");
         max++;
       }

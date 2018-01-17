@@ -4,5 +4,6 @@
   <td><%= ticket.address %></td>
   <td><%= ticket.price %></td>
   <td><%= ticket.places %></td>
-  <td><%= link_to ticket.name, event_path(ticket.event_id) %></td>
+  <td><%= link_to ticket.event_name, event_path(ticket.event_id), class: "btn btn-success" %></td>
+  <td><%= button_to 'Zwróć bilet', admin_receive_ticket_path, params: {id: ticket.id}, class: "btn btn-danger" %></td>
 </tr>

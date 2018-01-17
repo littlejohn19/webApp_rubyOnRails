@@ -15,6 +15,8 @@
   <% else %>
     <span class="alert-primary">Wydarzenie dla dorosłych: NIE</span>
   <% end %>
+  <br>
+  <span class="alert-success">Cena: 20 zł</span>
   <hr class="my-4">
   <p>Kup bilet:</p>
   <button id="show" class="btn btn-primary">Pokaż dostępne miejsca</button>
@@ -31,7 +33,7 @@
           BILET
         </button>
       <% else %>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ticketModal">
+        <button id="preBuy" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ticketModal">
           Kup bilet
         </button>
       <% end %>
@@ -51,16 +53,82 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <p></p>
+      <div class="modal-body col-xs-10">
+
+        <form>
+          <div class="form-group">
+            <div class="col-sm-4">
+              <label for="firstName" class="control-label">Imię i nazwisko</label>
+              <input class="form-control" id="firstName" name="firstName"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-4">
+              <label for="address" class="control-label">Adres</label>
+              <input class="form-control" id="address" name="address"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-4">
+              <label for="firstName" class="control-label">Adres email</label>
+              <input class="form-control" id="email" name="firstName"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-4">
+              <label for="seats" class="control-label">Wybrane miejsca</label>
+              <input class="form-control" id="seats" name="seats"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-4">
+              <label for="price" class="control-label">Cena</label>
+              <input class="form-control" id="price" name="price"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-4">
+              <label for="firstName" class="control-label">User Id</label>
+              <input class="form-control" id="user_id" name="firstName" value="<%= current_user.id %>"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-4">
+              <label for="firstName" class="control-label">Event Id</label>
+              <input class="form-control" id="user_id" name="firstName" value="<%= @event.id %>"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-4">
+              <label for="firstName" class="control-label">Event Title</label>
+              <input class="form-control" id="user_id" name="firstName" value="<%= @event.title %>"/>
+            </div>
+          </div>
+
+        </form>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Kup</button>
+        <%= button_to 'Kup', admin_buy_ticket_path,
+                      params: {event_id: @event.id, event_name: @event.title,
+                               address: 'Ul. Piastowska 51',
+                               event_date: @event.date, name: current_user.email,
+                               user_id: current_user.id, places: 'C24 D32 E40 F48', price: '80'},
+                      method: :post, class: "btn btn-success btn-buy btn-max btn-pointer" %>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Anuluj</button>
       </div>
     </div>
   </div>
 </div>
 
+<script>
+
+  $('#preBuy').on('click', function () {
+    var amount = window.seats.split(' ').length - 1;
+    $('#price').val(amount * 20 + 'zł');
+    $('#seats').val(window.seats);
+  });
+
+</script>
 
 <!-- <%= link_to 'Wróć...', events_path %> -->
