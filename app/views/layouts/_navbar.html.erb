@@ -1,27 +1,29 @@
 <header>
   <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
-    <!--<a class="navbar-brand" href="#">Bilecik</a>-->
-    <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
-      <!--<span class="navbar-toggler-icon"></span>-->
-    <!--</button>-->
-    <!--<div class="collapse navbar-collapse" id="navbarNav">-->
-      <!--<ul class="navbar-nav">-->
-        <!--<li class="nav-item active">-->
-          <!--<%= link_to 'Home', root_path, class: "nav-link #{yield(:home_active)}" %>-->
-        <!--</li>-->
-        <!--<li class="nav-item">-->
-          <!--<%= link_to 'Wydarzenia', root_path, class: "nav-link #{yield(:home_active)}" %>-->
-        <!--</li>-->
-        <!--<% if user_signed_in? %>-->
-          <!--<li class="nav-item">-->
-            <!--<%= link_to 'Panel Admina', admin_events_path, class: "nav-link #{yield(:home_active)}" %>-->
-          <!--</li>-->
-          <!--<li class="nav-item">-->
-            <!--<%= link_to 'Wyloguj', destroy_user_session_path, method: :delete, class: "nav-link" %>-->
-          <!--</li>-->
-        <!--<% end %>-->
-      <!--</ul>-->
-    <!--</div>-->
+  <!--<a class="navbar-brand" href="#">Bilecik</a>-->
+  <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+  <!--<span class="navbar-toggler-icon"></span>-->
+  <!--</button>-->
+  <!--<div class="collapse navbar-collapse" id="navbarNav">-->
+  <!--<ul class="navbar-nav">-->
+  <!--<li class="nav-item active">-->
+  <!--<%= link_to 'Home', root_path, class: "nav-link #{yield(:home_active)}" %>-->
+  <!--</li>-->
+  <!--<li class="nav-item">-->
+  <!--<%= link_to 'Wydarzenia', root_path, class: "nav-link #{yield(:home_active)}" %>-->
+  <!--</li>-->
+  <!--
+  <% if user_signed_in? %>-->
+    <!--<li class="nav-item">-->
+    <!--<%= link_to 'Panel Admina', admin_events_path, class: "nav-link #{yield(:home_active)}" %>-->
+    <!--</li>-->
+    <!--<li class="nav-item">-->
+    <!--<%= link_to 'Wyloguj', destroy_user_session_path, method: :delete, class: "nav-link" %>-->
+    <!--</li>-->
+    <!--
+  <% end %>-->
+  <!--</ul>-->
+  <!--</div>-->
   <!--</nav>-->
 
 
@@ -49,8 +51,10 @@
               Profil
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to 'Zarządzaj eventami', admin_events_path, class: "nav-link" %>
-              <%= link_to 'Archiwalne eventy', admin_index_path, class: "nav-link" %>
+              <% if current_user.admin? %>
+                <%= link_to 'Zarządzaj eventami', admin_events_path, class: "nav-link" %>
+                <%= link_to 'Archiwalne eventy', admin_index_path, class: "nav-link" %>
+              <% end %>
               <%= link_to 'Bilety', admin_tickets_path, class: "nav-link" %>
               <%= link_to 'Edytuj profil', admin_account_path, class: "nav-link" %>
               <div class="dropdown-divider"></div>

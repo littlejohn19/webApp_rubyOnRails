@@ -89,7 +89,7 @@
           <div class="form-group">
             <div class="col-sm-4">
               <label for="firstName" class="control-label">User Id</label>
-              <input class="form-control" id="user_id" name="firstName" value="<%= current_user.id %>"/>
+              <input class="form-control" id="user_id" name="firstName" />
             </div>
           </div>
           <div class="form-group">
@@ -112,9 +112,9 @@
         <%= button_to 'Kup', admin_buy_ticket_path,
                       params: {event_id: @event.id, event_name: @event.title,
                                address: 'Ul. Piastowska 51',
-                               event_date: @event.date, name: current_user.email,
-                               user_id: current_user.id, places: 'C24 D32 E40 F48', price: '80'},
-                      method: :post, class: "btn btn-success btn-buy btn-max btn-pointer" %>
+                               event_date: @event.date, name: 'darekpiwko@outlook.com',
+                               places: 'C24 D32 E40 F48', price: '80'},
+                      method: :post, class: "btn btn-success btn-buy btn-max btn-pointer block-buy" %>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Anuluj</button>
       </div>
     </div>

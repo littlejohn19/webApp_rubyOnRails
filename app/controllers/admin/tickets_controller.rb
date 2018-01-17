@@ -16,7 +16,7 @@ module Admin
     def buy_ticket
       event_id = params[:event_id]
       event = Event.find(event_id)
-      user_id = params[:user_id]
+      user_id = current_user.id
       user = User.find(user_id)
       address = params[:address]
       price = params[:price].to_i
