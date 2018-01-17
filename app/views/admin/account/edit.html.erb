@@ -58,7 +58,7 @@
                 <li class="list-group-item">
                   <div class="field">
                     <%= f.label :Data_Urodzenia %>
-                    <%= f.date_select :birthdate, value: current_user.birthdate, class: 'form-control' %>
+                    <%= f.date_select :birthdate, :start_year => 1900, :end_year => Date.current.year, value: current_user.birthdate, class: 'form-control' %>
                   </div>
                 </li>
                 <li class='list-group-item'>
